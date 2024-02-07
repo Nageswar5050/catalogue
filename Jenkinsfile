@@ -8,7 +8,7 @@ pipeline {
         stage ("get version from catalogue code") {
             steps {
                 script {
-                    def packageJson = readJSON file: 'roboshop_code/catalogue/package.json'
+                    def packageJson = readJSON file: 'package.json'
                     packageVersion = packageJson.version
                     echo "catalogue application version : $packageVersion"
                 }
@@ -21,7 +21,7 @@ pipeline {
                     sudo apt-get update -y
                     sudo apt-get install nodejs -y
 
-                    ls -la /var/lib/jenkins/workspace/ROBOSHOP/catalogue_app_pipeline/roboshop_code/catalogue/
+                    ls -la 
                 """
             }
         }
