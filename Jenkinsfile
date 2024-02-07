@@ -18,10 +18,6 @@ pipeline {
         stage ("install dependencies") {
             steps {
                 sh """
-                    yum module disable nodejs -y
-                    yum module enable nodejs:18 -y
-                    yum install nodejs -y
-
                     npm install
 
                     ls -la 
