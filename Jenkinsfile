@@ -18,8 +18,8 @@ pipeline {
         stage ("install dependencies") {
             steps {
                 sh """
-                    sudo apt-get update -y
-                    sudo apt-get install nodejs -y
+                    apt-get update -y
+                    apt-get install nodejs -y
 
                     ls -la 
                 """
