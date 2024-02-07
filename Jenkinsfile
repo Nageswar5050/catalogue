@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            labels 'Agent_1'
+    }   }
 
     environment {
         packageVersion = ' '
