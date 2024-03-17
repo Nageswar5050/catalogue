@@ -33,6 +33,7 @@ pipeline {
                     sudo dnf module enable nodejs:18 -y
                     sudo dnf install nodejs -y
                     npm install
+                    zip -r catalogue.zip ./* -x ".git" -x "*.zip"
                 """
         }
     }
