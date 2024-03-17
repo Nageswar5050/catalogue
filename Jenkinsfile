@@ -29,9 +29,9 @@ pipeline {
         stage ('Building') {
             steps {
                 sh """
-                    dnf module disable nodejs -y
-                    dnf module enable nodejs:18 -y
-                    dnf install nodejs -y
+                    sudo dnf module disable nodejs -y
+                    sudo dnf module enable nodejs:18 -y
+                    sudo dnf install nodejs -y
                     npm install
                 """
         }
