@@ -1,30 +1,28 @@
 pipeline {
     agent {
         node {
-            label 'Agent_1'
-    }   }
+            label 'agent_1'
+        }
+    }
+
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        disableConcurrentBuils()
+        ansiColour('xterm')
+    }
 
     environment {
-        packageVersion = ' '
+        packageVersion = ""
     }
+
     stages {
-        stage ("get version from catalogue code") {
+        stage ('GetVersion') {
             steps {
                 script {
-                    def packageJson = readJSON file: 'package.json'
+                    packageJson = readJSON file: 'package.json'
                     packageVersion = packageJson.version
-                    echo "catalogue application version : $packageVersion"
+                    echo "${packageVersion}"
                 }
-            }
-        }
-
-        stage ("install dependencies") {
-            steps {
-                sh """
-                    npm install
-
-                    ls -la 
-                """
             }
         }
     }
