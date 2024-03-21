@@ -34,7 +34,8 @@ pipeline {
                     sudo dnf install nodejs -y
                     npm install
                     zip -qr catalogue.zip ./* -x ".git" -x "*.zip"
-                """
+                    ls -ltr
+                  """
         }
     }
 }
